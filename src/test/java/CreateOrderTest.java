@@ -3,55 +3,50 @@ import io.restassured.response.ValidatableResponse;
 import org.example.Order;
 import org.example.OrderClient;
 import org.example.OrderGenerator;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import java.util.List;
+import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class CreateOrderDifferentColorsTest {
+public class CreateOrderTest {
     private OrderClient orderClient;
     private Order order;
     private int statusCode;
-    private List<String> color;
-    private int track;
 
-    public CreateOrderDifferentColorsTest (int statusCode, Order order, List<String> color){
+    public CreateOrderTest(Order order, int statusCode) {
         this.order = order;
-        this.color= color;
         this.statusCode = statusCode;
-            }
-
-    @Before
-    public void setUp(){
-        orderClient = new OrderClient();
-
     }
 
 
-
     @Parameterized.Parameters
-    public static  Object[][] getTestData(){
+    public static Object[][] getTestData() {
         return new Object[][]{
-               // {List.of()},
-               // {List.of(null)},
-                {List.of("GREY")},
-               // {List.of("GREY","BLACK")}
+                {OrderGenerator.getWithBlackColor(), SC_CREATED},
+                {OrderGenerator.getWithGreyColor(), SC_CREATED},
+                {OrderGenerator.getWithBlackAndGrayColors(), SC_CREATED},
+                {OrderGenerator.getWithoutColor(), SC_CREATED}
         };
+    }
+
+    @Before
+    public void setUp() {
+        orderClient = new OrderClient();
     }
 
     @Test
     @DisplayName("Order can be created with different colors")
-    public void orderCanBeCreatedWithDifferentColorsTest() {
-        order.setColor(List.of());
-        ValidatableResponse responseCreate = null;
-        track = responseCreate.extract().path("track");
-        responseCreate = orderClient.createOrder(order);
+    public void orderCanBeCreated(){
+        ValidatableResponse responseCreate = orderClient.createOrder(order);
         int actualStatusCode = responseCreate.extract().statusCode();
-        assertEquals(statusCode, actualStatusCode);
-
+        int track = responseCreate.extract().path("track");
+        assertThat("Expected track number",track, notNullValue());
+        assertEquals("Status Code incorrect",statusCode,actualStatusCode);
     }
+
 }
