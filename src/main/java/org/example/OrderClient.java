@@ -1,14 +1,11 @@
 package org.example;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import java.util.List;
 import static io.restassured.RestAssured.given;
 
 public class OrderClient extends Client{
 
     private static final String PATH = "api/v1/orders";
-
-
 
     @Step("return List Order")
     public ValidatableResponse returnOrderList(){

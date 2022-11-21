@@ -40,7 +40,7 @@ public class CreateOrderTest {
     }
 
     @Test
-    @DisplayName("Order can be created with different colors")
+    @DisplayName("Checking if the body of the response contains track")
     public void orderCanBeCreated(){
         ValidatableResponse responseCreate = orderClient.createOrder(order);
         int actualStatusCode = responseCreate.extract().statusCode();
