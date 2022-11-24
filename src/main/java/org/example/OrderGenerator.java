@@ -1,9 +1,6 @@
 package org.example;
-
 import java.util.List;
-
 public class OrderGenerator {
-
    public static Order getWithBlackColor(){
         return new Order("Naruto",
                 "Uzumaki",
@@ -52,5 +49,4 @@ public class OrderGenerator {
                 List.of()
         );
     }
-
 }

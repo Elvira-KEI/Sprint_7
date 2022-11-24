@@ -10,17 +10,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.junit.Assert.assertEquals;
-
 @RunWith(Parameterized.class)
 public class CourierTest {
-
     private CourierClient courierClient;
-
     private Courier courier;
     private int statusCode;
     private String message;
     private  int id;
-
     @Before
     public void setUp(){
         courierClient = new CourierClient();
@@ -29,13 +25,11 @@ public class CourierTest {
     public void cleanUp(){
             courierClient.delete(id);
     }
-
     public CourierTest (Courier courier, int statusCode, String message){
         this.courier = courier;
         this.statusCode = statusCode;
         this.message = message;
     }
-
     @Parameterized.Parameters
     public static Object[][] getTestData(){
 
@@ -57,5 +51,4 @@ public class CourierTest {
         String actualMessage = responseCreate.extract().path("message");
         assertEquals(message, actualMessage);
          }
-
 }
