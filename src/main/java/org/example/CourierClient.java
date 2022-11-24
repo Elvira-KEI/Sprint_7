@@ -6,7 +6,8 @@ public class CourierClient extends Client{
     private static final String CREATE_COURIER_PATH = "api/v1/courier";
     private static final String LOGIN_COURIER_PATH = "api/v1/courier/login";
     private static final String DELETE_COURIER_PATH = "api/v1/courier";
-  @Step("creating courier")
+
+     @Step("creating courier")
     public ValidatableResponse create(Courier courier){
         return  given()
                 .spec(getSpec())
@@ -15,8 +16,8 @@ public class CourierClient extends Client{
                 .post(CREATE_COURIER_PATH)
                 .then();
      }
-  @Step("login courier")
-     public ValidatableResponse login(Credentials credentials){
+    @Step("login courier")
+    public ValidatableResponse login(Credentials credentials){
         return given()
                 .spec(getSpec())
                 .body(credentials)
@@ -24,7 +25,7 @@ public class CourierClient extends Client{
                 .post(LOGIN_COURIER_PATH)
                 .then();
     }
-  @Step("delete courier")
+    @Step("delete courier")
     public ValidatableResponse delete(int id){
         return given()
                 .spec(getSpec())

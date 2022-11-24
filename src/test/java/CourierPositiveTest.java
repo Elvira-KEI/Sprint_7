@@ -20,10 +20,10 @@ public class CourierPositiveTest {
     @Before
     public void setUp() {
         courierClient = new CourierClient();
-        courier = CourierGenerator.getRandomCourier();    }
+        courier = CourierGenerator.getRandomCourier();}
     @After
     public void cleanUp(){
-        courierClient.delete(id);    }
+        courierClient.delete(id);}
     @Test
     @DisplayName("Check response when courier is created" )
     public void courierCanBeCreated(){
@@ -34,7 +34,8 @@ public class CourierPositiveTest {
         boolean isCourierCreated = responseCreate.extract().path("ok");
         assertEquals("Status Code incorrect",actualStatusCode, SC_CREATED);
         assertTrue("Expected true",isCourierCreated);    }
-    @Test    @DisplayName("Check response when courier is logged in" )
+    @Test
+    @DisplayName("Check response when courier is logged in" )
     public void courierCanBeLoginAndCheckResponse(){
         ValidatableResponse responseCreate = courierClient.create(courier);
         ValidatableResponse responseLogin = courierClient.login(Credentials.from(courier));

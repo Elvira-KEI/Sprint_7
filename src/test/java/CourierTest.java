@@ -32,7 +32,6 @@ public class CourierTest {
     }
     @Parameterized.Parameters
     public static Object[][] getTestData(){
-
         return new Object[][]{
                 {CourierGenerator.getWithPasswordOnly(), SC_BAD_REQUEST, "Недостаточно данных для создания учетной записи"},
                 {CourierGenerator.getWithLoginOnly(), SC_BAD_REQUEST, "Недостаточно данных для создания учетной записи"},

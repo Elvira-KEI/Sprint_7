@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: CourierTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 8.176 s <<< FAILURE! - in CourierTest
+courierCanBeCreated[3](CourierTest)  Time elapsed: 1.385 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<409>
+	at CourierTest.courierCanBeCreated(CourierTest.java:56)
+
+courierCanBeCreated[4](CourierTest)  Time elapsed: 1.368 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<409>
+	at CourierTest.courierCanBeCreated(CourierTest.java:56)
+
+courierCanBeCreated[5](CourierTest)  Time elapsed: 1.353 s  <<< FAILURE!
+java.lang.AssertionError: expected:<400> but was:<409>
+	at CourierTest.courierCanBeCreated(CourierTest.java:56)
+
