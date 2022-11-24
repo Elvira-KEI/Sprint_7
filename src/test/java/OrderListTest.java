@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 public class OrderListTest {
     private OrderClient orderClient;
-
     @Before
     public void setUp() {
         orderClient = new OrderClient();

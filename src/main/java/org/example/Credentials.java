@@ -8,25 +8,19 @@ public class Credentials {
         this.login = login;
         this.password = password;
     }
-    //статический метод который вернёт Credentials и сделает это на основание нашего курьера
-    public static Credentials from(Courier courier){
+       public static Credentials from(Courier courier){
         return new Credentials(courier.getLogin(), courier.getPassword());
     }
-
     public String getLogin() {
         return login;
     }
-
     public void setLogin(String login) {
         this.login = login;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

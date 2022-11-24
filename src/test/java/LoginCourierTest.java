@@ -6,16 +6,13 @@ import org.example.CourierGenerator;
 import org.example.Credentials;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
-
 public class LoginCourierTest {
     CourierClient courierClient;
     Courier courier;
     int courierId;
     Credentials courierCredentials;
-
     @Before
     public void setUp() {
         courierClient = new CourierClient();

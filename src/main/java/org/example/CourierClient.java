@@ -17,7 +17,6 @@ public class CourierClient extends Client{
                 .then();
      }
     @Step("login courier")
-    /* метод login курьера*/
     public ValidatableResponse login(Credentials credentials){
         return given()
                 .spec(getSpec())
@@ -27,7 +26,6 @@ public class CourierClient extends Client{
                 .then();
     }
     @Step("delete courier")
-    /* метод удаления курьера*/
     public ValidatableResponse delete(int id){
         return given()
                 .spec(getSpec())
